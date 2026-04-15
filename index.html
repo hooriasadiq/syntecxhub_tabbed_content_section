@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabbed Content</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Tabbed Content Section</h2>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="tab1">Overview</button>
+    <button class="tab" data-tab="tab2">Info</button>
+    <button class="tab" data-tab="tab3">Contact</button>
+  </div>
+
+  <div class="content active" id="tab1">
+    <h3>Overview</h3>
+    <p>This is overview section. You can write introduction here.</p>
+  </div>
+
+  <div class="content" id="tab2">
+    <h3>Info</h3>
+    <p>This is info section. Add details here.</p>
+  </div>
+
+  <div class="content" id="tab3">
+    <h3>Contact</h3>
+    <p>Email: example@gmail.com</p>
+  </div>
+</div>
+
+<script>
+    const tabs = document.querySelectorAll(".tab");
+const contents = document.querySelectorAll(".content");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    
+    // remove active
+    tabs.forEach(t => t.classList.remove("active"));
+    contents.forEach(c => c.classList.remove("active"));
+
+    // add active
+    tab.classList.add("active");
+    document.getElementById(tab.dataset.tab).classList.add("active");
+  });
+});
+</script>
+</body>
+</html>
